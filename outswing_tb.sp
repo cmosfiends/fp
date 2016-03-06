@@ -110,7 +110,7 @@ V7 Vtest 0 DC=1.25V
 
 C1 VOUTP 0 3p
 C2 VOUTN 0 3p
-Cf1 VOUTP Vin2 1p
+
 Cf2 VOUTN Vin1 1p
 Cf3 Vin1 0 1p 
 Cf4 Vin2 0 1p
@@ -235,7 +235,7 @@ PS=1.32u+2*W27 PD=1.32u+2*W27
 
 
 .op
-.DC V6 START=-1.5m STOP=1.5m STEP=.00001
+.DC V6 START=-1.5m STOP=1.5m STEP=1e-6
 *.meas dc d_vout DERIV v(vout) WHEN VOUT=.01 
 *.print dc par('d_vout/v(vin1)')
 *.pz v(Output) V1

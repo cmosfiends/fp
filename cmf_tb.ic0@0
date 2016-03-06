@@ -1,0 +1,57 @@
+* "simulator" "HSPICE" 
+* "version" "K-2015.06-SP1 linux64"
+* "format" "HSP"
+* "rundate" "22:27:44 03/05/2016 "
+* "netlist" "./cmf_tb.sp "
+* "runtitle" ".title ece423 final project"
+* time =    0.            
+* temperature =   27.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ b =   2.4998        
++ bias =   1.2500        
++ bout =   1.9077        
++ nc =   1.8132        
++ vdd =   2.5000        
++ vin1 =   0.            
++ vin2 = 3.674e-19       
++ voutn =   2.4301        
++ voutp =   2.4301        
++ vss =   0.            
++ x1.a =   1.8530        
++ x1.d51s5 = 902.5359n       
++ x1.d8s10 = 198.0731m       
++ x1.d9s11 = 198.0731m       
++ x1.dt1 = 644.1565m       
++ x1.dt2 =   1.5149        
++ x1.idiff =   1.3174u       
++ x1.idiff1 =   1.3942        
++ x1.idiff2 =   1.3942        
++ x1.iref =   1.9025        
++ x1.s24d26 = 170.0703m       
++ x1.s25d27 = 170.0703m       
++ x1.sb1 = 771.8059m       
++ x1.sooch =   1.4160        
++ x1.vcm_ref =   1.2500        
++ x1.vfold1 =   2.4502        
++ x1.vfold2 =   2.4502        
++ x2.a =   1.8562        
++ x2.d51s5 =  37.2289m       
++ x2.d8s10 = 181.8990m       
++ x2.d9s11 = 181.8990m       
++ x2.dt1 = 644.1565m       
++ x2.dt2 =   1.5149        
++ x2.idiff =  55.2163m       
++ x2.idiff1 = 811.9335m       
++ x2.idiff2 = 811.9335m       
++ x2.iref =   1.9025        
++ x2.s24d26 = 152.1880m       
++ x2.s25d27 = 152.1880m       
++ x2.sb1 = 771.8059m       
++ x2.sooch =   1.4160        
++ x2.vcm_ref =   1.2500        
++ x2.vfold1 =  61.4357m       
++ x2.vfold2 =  61.4357m       
+***   END: Saved Operating Point ***                     

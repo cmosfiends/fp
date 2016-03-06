@@ -1,0 +1,44 @@
+* "simulator" "HSPICE" 
+* "version" "K-2015.06-SP1 linux64"
+* "format" "HSP"
+* "rundate" "22:27:45 03/05/2016 "
+* "netlist" "./outswing_tb.sp "
+* "runtitle" ".title ece423 final project"
+* time =    0.            
+* temperature =   27.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ a =   1.9222        
++ b =   1.9119        
++ d10 = 292.4303m       
++ d11 = 292.4303m       
++ d3 =   1.8929        
++ d4 =   1.8929        
++ d51s5 = 149.7171m       
++ d8s10 = 133.9292m       
++ d9s11 = 133.9292m       
++ dt1 = 641.0692m       
++ dt2 =   1.5217        
++ dt3 =   1.3140        
++ idiff = 660.2877m       
++ idiff1 = 623.6213m       
++ idiff2 = 623.6213m       
++ iref =   1.9025        
++ s24d26 = 148.4340m       
++ s25d27 = 148.4340m       
++ sb1 = 771.9131m       
++ sb2 = 896.7946m       
++ sooch =   1.5379        
++ vcm_ref =   1.2500        
++ vdd =   2.5000        
++ vfold1 =   2.1144        
++ vfold2 =   2.1144        
++ vin1 =   1.2500        
++ vin2 =   1.2500        
++ voutn =   1.2365        
++ voutp =   1.2365        
++ vss =   0.            
++ vtest =   1.2500        
+***   END: Saved Operating Point ***                     
