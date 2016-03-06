@@ -1,7 +1,7 @@
 .title ECE423 FINAL PROJECT 
 .options post
 **include model file
-.include ../../tsmc25.net
+.include ../tsmc25
 
 .param P='455.303/158.675'
 .param x = 50u
@@ -99,12 +99,14 @@
 .TEMP 27
 
 **TESTBENCH
-V1 vtest 0 DC=1.25V SIN(0 300e-5 10e3 0 0 0) AC=.5,0
+$V1 vtest 0 DC=1.25V SIN(0 300e-5 10e3 0 0 0) AC=.5,0
 V2 Vdd 0 DC=2.5V
 V3 Vss 0 DC=0V
-V4 vin2 0 DC=1.25V SIN(0 300e-5 10e3 0 0 180) AC=.5,180
+$V4 vin2 0 DC=1.25V SIN(0 300e-5 10e3 0 0 180) AC=.5,180
 V5 VCM_REF 0 DC=1.25
 V6 Vin1 Vtest DC=0
+E1 Vin2 Vtest Vin1 Vtest -1
+V7 Vtest 0 DC=1.25V
 
 C1 VOUTP 0 3p
 C2 VOUTN 0 3p
@@ -233,7 +235,7 @@ PS=1.32u+2*W27 PD=1.32u+2*W27
 
 
 .op
-*.DC V6 START=-5m STOP=5m STEP=.00001
+.DC V6 START=-1.5m STOP=1.5m STEP=.00001
 *.meas dc d_vout DERIV v(vout) WHEN VOUT=.01 
 *.print dc par('d_vout/v(vin1)')
 *.pz v(Output) V1

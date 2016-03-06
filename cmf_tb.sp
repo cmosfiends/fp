@@ -1,7 +1,7 @@
 .title ECE423 FINAL PROJECT 
 .options post
 **include model file
-.include ../../tsmc25.net
+.include ../tsmc25
 
 .param P='455.303/158.675'
 .param x = 50u

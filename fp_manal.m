@@ -52,37 +52,49 @@ fileIdx = strmatch(swlist(1),{options.name}); %load .sw output
 x1 = loadsig([options(fileIdx).name]);
 
 on = strmatch({'v_voutn'}, {x1.name});
-output = x1(on).data;
+op = strmatch({'v_voutp'}, {x1.name});
+outn = x1(on).data;
+outp = x1(op).data;
 in = strmatch({'VOLTS'}, {x1.name});
 input = x1(in).data;
 
+len = length(outn);
 %mark DC gain
-reference = 45.4*ones(length(output)-1,1);
+reference = 65*ones(len-1,1);
 %dx for scaling
-step = mode(diff(x1(in).data));
+dx = mode(diff(x1(in).data));
 %extract gain from output
-gaincurve = db(diff(output)./step);
+op_curve = db(diff(outp)./dx);
+on_curve = db(diff(outn)./dx);
 
 figure
 p1 = subplot(2,1,1);
 hold on
 grid minor
-plot(x1(in).data(1:end-1,1), gaincurve,...
-     x1(in).data(1:end-1,1), reference);
+plot(input(1:end-1,1), op_curve,...
+     input(1:end-1,1), on_curve,...
+     input(1:end-1,1), reference);
 
-%find flat band intersections
-[IR idx1] = min(abs(reference - gaincurve)); 
-[OF idx2] = min(abs(reference(1:idx1-10) - gaincurve(1:idx1-10)));
+%find flat band intersections, 
+% [IR idx1] = min(abs(reference(150:len-1) - op_curve(150:len-1))); 
+% [OF idx2] = min(abs(reference(1:len-150) - on_curve(1:len-150)));
+% idx1 = idx1+150
+
+[IR idx1] = min(abs(reference - op_curve)); 
+[OF idx2] = min(abs(reference - on_curve));
+
+
 plot([input(idx1);input(idx2)],...
-     [gaincurve(idx1);gaincurve(idx2)], 'o'); 
+     [op_curve(idx1);on_curve(idx2)], 'o'); 
 ylabel('dB'); title('Output Swing');
 
 p2 = subplot(2,1,2);
 hold on
 grid minor
-plot(input, output);
-plot([input(idx1),input(idx2)], [output(idx1);output(idx2)], 'o');
+plot(input, outn,...
+     input, outp);
+plot([input(idx1),input(idx2)], [outp(idx1);outn(idx2)], 'o');
 ylabel('V'); xlabel('VOLTS');
 %output swing referenced by flatband intersection
-text(-.5e-3, .5,['Output Swing = ',num2str(output(idx1)-output(idx2))]);
+text(1e-3, .5,['Output Swing = ',num2str(on_curve(idx2)-op_curve(idx1))]);
 linkaxes([p1 p2], 'x');
