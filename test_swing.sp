@@ -6,7 +6,8 @@
 .param P='455.303/158.675'
 .param x = 50u
 .param s = 1
-.param bs = .5
+
+.param W0 = x*P*s
 .param W1 = x*s
 .param W2 = x*s
 .param W3 = x*P*s
@@ -18,18 +19,12 @@
 .param W9 = x*s
 .param W10 = x*s
 .param W11 = x*s
-
-*bias
-.param W0  = bs*x*P*s
-.param W12 = bs*x*P*s
-.param W13 = bs*x*s
-.param W14 = bs*x*s
-.param W15 = bs*x*s
-.param W16 = bs*x*P*s
-.param W17 = bs*x*s
-.param W36 = bs*x*s
-.param W37 = bs*x*s*P
-.param W38 = bs*x*s
+.param W12 = x*P*s
+.param W13 = x*s
+.param W14 = x*s
+.param W15 = x*s
+.param W16 = x*P*s
+.param W17 = x*s
 
 *CMFB
 .param W18 = x*P*s
@@ -54,6 +49,9 @@
 .param W33 = x*s
 .param W34 = x*s*P
 .param W35 = x*s*P
+.param W36 = x*s
+.param W37 = x*s*P
+.param W38 = x*s
 
 .param L0 = .24u
 .param L1 = .24u
@@ -85,10 +83,10 @@
 .param L26 = .24u
 .param L27 = .24u
 
-.param L28 = .24u
-.param L29 = .24u
-.param L30 = .24u
-.param L31 = .24u
+.param L28 = 7.24u
+.param L29 = 7.24u
+.param L30 = 7.24u
+.param L31 = 7.24u
 
 .param L32 = .24u
 .param L33 = .24u
@@ -101,25 +99,26 @@
 .TEMP 27
 
 **TESTBENCH
-V1 vtest 0 DC=1.25V SIN(0 300e-5 10e3 0 0 0) AC=.5,0
+$V1 vtest 0 DC=1.25V SIN(0 300e-5 10e3 0 0 0) AC=.5,0
 V2 Vdd 0 DC=2.5V
 V3 Vss 0 DC=0V
-V4 vin2 0 DC=1.25V SIN(0 300e-5 10e3 0 0 180) AC=.5,180
+$V4 vin2 0 DC=1.25V SIN(0 300e-5 10e3 0 0 180) AC=.5,180
 V5 VCM_REF 0 DC=1.25
 V6 Vin1 Vtest DC=0
-$E1 Vin2 Vtest Vin1 Vtest -1
-$V7 Vtest 0 DC=1.25V
+Vwtf wtf 0 .925V
+E1 Vin2 Vtest Vin1 Vtest -1
+V7 Vtest 0 DC=1.25V
 
-C1 VOUTP 0 3p
-C2 VOUTN 0 3p
+C1 OUTP 0 3p
+C2 OUTN 0 3p
 
-Cf2 VOUTN Vin1 1p
+Cf2 OUTN Vin1 1p
 Cf3 Vin1 0 1p 
 Cf4 Vin2 0 1p
 Rf1 Vin1 0 1G
 Rf2 Vin2 0 1G
 
-I1 IREF 0 DC=250u
+I1 IREF 0 DC=400u
 M0 IREF IREF Vdd Vdd CMOSP W=W0 L=L0 M=1 AD=0.66u*W0 AS=0.66u*W0 \
 PS=1.32u+2*W0 PD=1.32u+2*W0
 
@@ -195,15 +194,16 @@ M36 SOOCH SOOCH SB2 SB2 CMOSN W=W36 L=L36 M=1 AD=0.66u*W36 AS=0.66u*W36 \
 PS=1.32u+2*W36 PD=1.32u+2*W36
 
 *OUTPUT STAGE
-*M28 Vdd IREF OUTN OUTN CMOSP W=W28 L=L28 M=1 AD=0.66u*W28 AS=0.66u*W28 \
-*PS=1.32u+2*W28 PD=1.32u+2*W28
-*M29 OUTN VOUTN 0 0 CMOSN W=W29 L=L29 M=1 AD=0.66u*W29 AS=0.66u*W29 \
-*PS=1.32u+2*W29 PD=1.32u+2*W29
+M28 OUTN wtf Vdd Vdd CMOSP W=W28 L=L28 M=1 AD=0.66u*W28 AS=0.66u*W28 \
+PS=1.32u+2*W28 PD=1.32u+2*W28
+M29 OUTN VOUTN 0 0 CMOSN W=W29 L=L29 M=1 AD=0.66u*W29 AS=0.66u*W29 \
+PS=1.32u+2*W29 PD=1.32u+2*W29
 
-*M30 Vdd IREF OUTP OUTP CMOSN W=W30 L=L30 M=1 AD=0.66u*W30 AS=0.66u*W30 \
-*PS=1.32u+2*W30 PD=1.32u+2*W30
-*M31 OUTP VOUTP 0 0 CMOSN W=W31 L=L31 M=1 AD=0.66u*W31 AS=0.66u*W31 \
-*PS=1.32u+2*W31 PD=1.32u+2*W31
+M30 OUTP wtf Vdd Vdd CMOSP W=W30 L=L30 M=1 AD=0.66u*W30 AS=0.66u*W30 \
+PS=1.32u+2*W30 PD=1.32u+2*W30
+M31 OUTP VOUTP 0 0 CMOSN W=W31 L=L31 M=1 AD=0.66u*W31 AS=0.66u*W31 \
+PS=1.32u+2*W31 PD=1.32u+2*W31
+
 
 *CMFB
 M18 A A Vdd Vdd CMOSP W=W18 L=L18 M=1 AD=0.66u*W18 AS=0.66u*W18 \
@@ -236,7 +236,7 @@ PS=1.32u+2*W27 PD=1.32u+2*W27
 
 
 .op
-.DC V6 START=-1.5m STOP=1.5m STEP=1e-6
+.DC V6 START=-.2m STOP=.2m STEP=1e-6
 *.meas dc d_vout DERIV v(vout) WHEN VOUT=.01 
 *.print dc par('d_vout/v(vin1)')
 *.pz v(Output) V1
@@ -246,13 +246,13 @@ PS=1.32u+2*W27 PD=1.32u+2*W27
 *.print ac vdb(vout, vin1)
 *.print ac vp(vout)
 *.meas ac freq3dbp when VDB(VOUTP)=-3
-.meas ac frequnityn when VDB(VOUTN)=0
-.meas ac frequnityp when VDB(VOUTP)=0
+.meas ac frequnityn when VDB(OUTN)=0
+.meas ac frequnityp when VDB(OUTP)=0
 *Scan out to unity gain frequency to find open loop gain
-.meas ac Pgain max vdb(VOUTP) FROM=10 TO=frequnityp
-.meas ac Ngain max vdb(VOUTN) FROM=10 TO=frequnityn
-.meas ac min_phasen MIN vp(VOUTN) FROM=1 TO=frequnityn
-.meas ac min_phasep MIN vp(VOUTP) FROM=1 TO=frequnityp
+.meas ac Pgain max vdb(OUTP) FROM=10 TO=frequnityp
+.meas ac Ngain max vdb(OUTN) FROM=10 TO=frequnityn
+.meas ac min_phasen MIN vp(OUTN) FROM=1 TO=frequnityn
+.meas ac min_phasep MIN vp(OUTP) FROM=1 TO=frequnityp
 .meas ac PM = param('180+min_phasep')
 .end
 
