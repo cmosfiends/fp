@@ -6,8 +6,8 @@ filepath = 'Z:\ECE423\fp';
 cd(filepath);
 options = dir;
 
-aclist = {'outswing_tb.ac0', 'test_swing.ac0'}; %maybe we should add a differential tb?
-swlist = {'outswing_tb.sw0'}; %sweeps input for output swing
+aclist = {'opamp.ac0', 'opamp_cmf.ac0'}; %maybe we should add a differential tb?
+swlist = {'opamp.sw0'}; %sweeps input for output swing
 
 % Remember ^R and ^T toggles comments
 
@@ -21,27 +21,27 @@ mn = strmatch({'v_voutn'}, {x_diff.name});
 pp = strmatch({'vp_voutp'}, {x_diff.name});
 pn = strmatch({'vp_voutn'}, {x_diff.name});
 
-% fileIdx = strmatch(aclist(2),{options.name}); 
-% x_cmf = loadsig([options(fileIdx).name]);
-% 
-% f = strmatch('HERTZ', {x_cmf.name});
-% m = strmatch({'v_b'}, {x_cmf.name});
-% p= strmatch({'vp_b'}, {x_cmf.name});
-% 
-% %extract phase margin and unity gain bandwidth
-% [~, pm_cmf, ~, ugf_cmf] = margin(abs(x_cmf(m(1)).data),...
-%                                  x_cmf(p).data,...
-%                                  x_cmf(f).data.*(2*pi));
+fileIdx = strmatch(aclist(2),{options.name}); 
+x_cmf = loadsig([options(fileIdx).name]);
+
+f = strmatch('HERTZ', {x_cmf.name});
+m = strmatch({'v_b'}, {x_cmf.name});
+p= strmatch({'vp_b'}, {x_cmf.name});
+
+%extract phase margin and unity gain bandwidth
+[~, pm_cmf, ~, ugf_cmf] = margin(abs(x_cmf(m(1)).data),...
+                                 x_cmf(p).data,...
+                                 x_cmf(f).data.*(2*pi));
 [~,pm_diff,~, ugf_diff] = margin(abs(x_diff(mp).data-x_diff(mn).data),...
                                  x_diff(pn).data,...
                                  x_diff(f).data.*(2*pi));
                              
 
-% %% Plot Frequency Response 
-% figure
-% set(gcf, 'Position', [347   162   928   504]); %wide view
-% margin(abs(x_cmf(m(1)).data),x_cmf(p).data,x_cmf(f).data.*(2*pi));
-% 
+%% Plot Frequency Response 
+figure
+set(gcf, 'Position', [347   162   928   504]); %wide view
+margin(abs(x_cmf(m(1)).data),x_cmf(p).data,x_cmf(f).data.*(2*pi));
+
 figure
 set(gcf, 'Position', [347   162   928   504]); %wide view
 margin(abs(x_diff(mp).data-x_diff(mn).data),...
@@ -104,5 +104,5 @@ pswing = outp(p_idx(end))-outp(p_idx(1));
 nswing = outn(n_idx(1))-outn(n_idx(end));
 outswing = pswing + nswing;
 legend('+','-');
-text(.5e-3, .5,['Output Swing = ',num2str(outswing)]);
+text(.5e-3, 1,['Output Swing = ',num2str(outswing)]);
 linkaxes([p1 p2], 'x');
