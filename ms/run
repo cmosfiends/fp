@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+	find . -name "*.sp" -type f -exec bash -c 'hspice "$0" > "${0%sp}lis"' {} \;
+fi
+
+if [ "$1" == "sim" ]; then
+	hspice HW2a_ROUT.sp > HW2a_ROUT.lis
+	hspice HW2a_GM.sp > HW2a_GM.lis
+	hspice HW2b_ROUT.sp > HW2b_ROUT.lis
+	hspice HW2b_GM.sp > HW2b_GM.lis
+	hspice HW2a_GAIN.sp > HW2a_GAIN.lis
+	hspice HW2b_GAIN.sp > HW2b_GAIN.lis
+fi
+
+if [ "$1" == "clean" ]; then
+	../../hpurge .
+fi
+
+exit 0
+
