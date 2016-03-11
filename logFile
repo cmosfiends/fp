@@ -1,0 +1,32 @@
+header
+"PSFversion" "1.00"
+"simulator" "HSPICE"
+"version" "K-2015.06-SP1 linux64"
+"rundate" "01:36:57 03/11/2016 "
+"runtitle" "* # file name: /nfs/stak/students/l/lovetr/cadence/simulation/    "
+"runtype" "logFile"
+TYPE
+"analysisInst" STRUCT(
+"analysisType" STRING *
+"dataFile" STRING *
+"format" STRING *
+"parent" STRING *
+"sweepVariable" ARRAY ( * ) STRING *
+"description" STRING * )
+VALUE
+"opBegin" "analysisInst" ( 
+"Operating Point"
+"triple.op0"
+"PSF"
+""
+()
+"Operating Point"
+)
+"summary" "analysisInst" ( 
+"Summary Information"
+"triple.su0"
+"PSF"
+""
+()
+"Summary Information"
+)

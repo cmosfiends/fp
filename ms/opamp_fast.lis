@@ -1,0 +1,506 @@
+Using: /usr/local/apps/synopsys/current_hspice/hspice/linux64/hspice ./ms/opamp_fast.sp
+ ****** HSPICE -- K-2015.06-SP1 linux64 (Aug 23 2015) ******                    
+  Copyright (c) 1986 - 2016 by Synopsys, Inc. All Rights Reserved.              
+  This software and the associated documentation are proprietary
+  to Synopsys, Inc. This software may only be used in accordance
+  with the terms and conditions of a written license agreement with
+  Synopsys, Inc. All other use, reproduction, or distribution of
+  this software is strictly prohibited.
+  Input File: ./ms/opamp_fast.sp                                                
+  Command line options: /usr/local/apps/synopsys/current_hspice/hspice/linux64/hspice ./ms/opamp_fast.sp
+ lic:  
+ lic: FLEXlm: v11.2.1 
+ lic: USER:   lovetr               HOSTNAME: kec1130-13.engr.oregonstate.edu 
+ lic: HOSTID: 8cdcd44e75fe         PID:      8824 
+ lic: Using FLEXlm license file: 
+ lic: 7188@linlic.engr.oregonstate.edu 
+ lic: Checkout 1 hspice 
+ lic: License/Maintenance for hspice will expire on 10-aug-2016/2015.06 
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER 7188@linlic.engr.oregonstate.edu 
+ lic:   
+ Init: read install configuration file: /usr/local/apps/synopsys/current_hspice/hspice/meta.cfg
+1****** HSPICE -- K-2015.06-SP1 linux64 (Aug 23 2015) ******                    
+ ******  
+ .title ece423 final project
+
+ ****** mos   model parameters tnom=  25.000 temp=  25.000 ******
+ ***************************************************************************
+ ***        model parameters  model name:   0:cmosn    model type:nmos   ***
+ ***************************************************************************
+
+   *** general parameters ***
+    deriv=   0.           
+
+   ***  level 49  model parameters  ***
+
+      hspver=    2006.03               level=         49         
+     version=        3.1            paramchk=          0         
+      apwarn=          1                lite=          0         
+      vgslim=          0             binUnit=          1         
+      capMod=          2               xpart=        0.4         
+      mobMod=          1              nqsMod=          0         
+      stiMod=          0                 elm=          5         
+    sfvtflag=          0                 tox=    5.8e-09 meter   
+          xj=      1e-07 meter       binflag=          0         
+        lmin=          0 meter          lmax=          0 meter   
+        wmin=          0 meter          wmax=          0 meter   
+        lref=          0 meter          wref=          0 meter   
+        lint=4.39347e-09 meter          wint= 2.1265e-09 meter   
+       lmult=          1               wmult=          1         
+          ll=          0                 lln=          1         
+          lw=          0                 lwn=          1         
+         lwl=          0                  wl=          0         
+         wln=          1                  ww=          0         
+         wwn=          1                 wwl=          0         
+         dwg=-3.40903e-09 m/V             dwb=2.79484e-09 m/V^1/2 
+          xl=     -3e-08                  xw=          0         
+          a0=    1.23186                 ags=   0.304333 V^-1    
+          b0=6.67749e-08 meter            b1=      5e-06 meter   
+        keta=0.000851805 V^-1           voff=  -0.102605 V       
+       ngate=          0 cm^-3           vbx=          0 V       
+         vbm=         -3 V                xt=   1.55e-07 meter   
+        vth0=   0.430894 V               nch= 2.3549e+17 cm^-3   
+        nsub=      6e+16 cm^-3           nlx= 1.4659e-07 meter   
+      gamma1=          0 V^-1/2       gamma2=          0 V^-1/2  
+          k1=   0.351943 V^1/2            k2=  0.0298493         
+          k3=      0.001                 k3b=  0.0592323 V^-1    
+          w0=      1e-05 meter          dvt0=  0.0183405         
+        dvt1= 0.00489758                dvt2= -0.0252658 V^-1    
+       dvt0w=          0 meter^-1      dvt1w=          0 meter^-1
+       dvt2w=          0 V^-1           dsub= 0.00304547         
+        eta0= 0.00348737                etab=0.000455799 V^-1    
+          u0=    455.303 cm^2/V/sec         ua=5.22359e-10 m/V     
+          ub=1.10471e-18 (m/V)^2          uc=3.28789e-11 V^-1    
+        vsat=     105099 m/sec            a1=          0 v^-1    
+          a2=          1               delta=       0.01 V       
+        rdsw=    509.568 ohm-um         prwg=  0.0227558 V^-1    
+        prwb=     -0.001 V^-1/2           wr=          1         
+        pclm=    1.04463             pdiblc1=   0.144195         
+     pdiblc2=0.000451338             pdiblcb=-2.81676e-05 V^-1    
+      pscbe1=1.76111e+10 V/m          pscbe2=3.77292e-09 V/m     
+       drout=   0.469872                pvag=  0.0361824         
+     nfactor=   0.134489                cdsc= 0.00152751 f/m^2   
+       cdscb=          0 f/V/m^2       cdscd=          0 f/V/m^2 
+         cit=          0 f/m^2        alpha0=          0 m/V     
+       beta0=         30 V               dlc=4.39347e-09 meter   
+         dwc= 2.1265e-09 meter           clc=      1e-07 meter   
+         cle=        0.6                cgso=   6.27e-10 f/m     
+        cgdo=   6.27e-10 f/m            cgbo=          0 f/m     
+        cgsl=          0 f/m            cgdl=          0 f/m     
+      ckappa=        0.6                  cf=9.33852e-11 f/m     
+        tnom=     300.15 K               kt1=      -0.11 V       
+        kt1l=          0                 kt2=      0.022         
+         ute=       -1.5                 ua1=   4.31e-09 m/V     
+         ub1=  -7.61e-18 (m/V)^2         uc1=   -5.6e-11 m/V^2   
+          at=      33000 m/s             prt=          0         
+         using Berkeley noise model       noiMod=          1         
+        noia=      1e+20                noib=      50000         
+        noic=   -1.4e-12                  em=    4.1e+07         
+          ef=          1                  af=          1         
+          kf=          0              gdsnoi=-1.23457e-29         
+         using Hspice diodes            using ACM 
+         acm=         0                 hdif=         0 meter    
+        ldif=         0 meter             js=         0 amp/m^2  
+         jsw=         0 amp/m            xti=         0          
+           n=         1                   cj=0.00191866 f/m^2    
+          mj=  0.472173                   pb=  0.978405 V        
+        cjsw=4.44159e-10 f/m             mjsw=  0.287112          
+         php=  0.978405 V               pbsw (not used)           
+      cjgate=4.44159e-10 f/m            cjswg (not used)           
+       mjswg (not used)                 pbswg (not used)           
+       lketa=-0.00614406               wketa=0.000751269         
+       pvth0= 0.00134299                 pk2=-0.00314072         
+       prdsw=   -61.8357         
+ ***************************************************************************
+ ***        model parameters  model name:   0:cmosp    model type:pmos   ***
+ ***************************************************************************
+
+   *** general parameters ***
+    deriv=   0.           
+
+   ***  level 49  model parameters  ***
+
+      hspver=    2006.03               level=         49         
+     version=        3.1            paramchk=          0         
+      apwarn=          1                lite=          0         
+      vgslim=          0             binUnit=          1         
+      capMod=          2               xpart=        0.4         
+      mobMod=          1              nqsMod=          0         
+      stiMod=          0                 elm=          5         
+    sfvtflag=          0                 tox=    5.8e-09 meter   
+          xj=      1e-07 meter       binflag=          0         
+        lmin=          0 meter          lmax=          0 meter   
+        wmin=          0 meter          wmax=          0 meter   
+        lref=          0 meter          wref=          0 meter   
+        lint=8.71907e-09 meter          wint=2.74881e-08 meter   
+       lmult=          1               wmult=          1         
+          ll=          0                 lln=          1         
+          lw=          0                 lwn=          1         
+         lwl=          0                  wl=          0         
+         wln=          1                  ww=          0         
+         wwn=          1                 wwl=          0         
+         dwg=-4.08759e-08 m/V             dwb=2.03201e-08 m/V^1/2 
+          xl=     -3e-08                  xw=          0         
+          a0=    1.38264                 ags=   0.419298 V^-1    
+          b0= 2.8441e-06 meter            b1=      5e-06 meter   
+        keta=  0.0208695 V^-1           voff=      -0.15 V       
+       ngate=          0 cm^-3           vbx=          0 V       
+         vbm=         -3 V                xt=   1.55e-07 meter   
+        vth0=  -0.615873 V               nch= 4.1589e+17 cm^-3   
+        nsub=      6e+16 cm^-3           nlx=      1e-09 meter   
+      gamma1=          0 V^-1/2       gamma2=          0 V^-1/2  
+          k1=   0.459838 V^1/2            k2=  0.0399415         
+          k3=          0                 k3b=    8.74107 V^-1    
+          w0=      1e-06 meter          dvt0=   0.624949         
+        dvt1=   0.203296                dvt2= -0.0513763 V^-1    
+       dvt0w=          0 meter^-1      dvt1w=          0 meter^-1
+       dvt2w=          0 V^-1           dsub=    1.02871         
+        eta0=   0.324124                etab=    -0.1842 V^-1    
+          u0=    158.675 cm^2/V/sec         ua=2.20002e-10 m/V     
+          ub=4.45742e-18 (m/V)^2          uc=1.02138e-10 V^-1    
+        vsat=     185064 m/sec            a1=          0 v^-1    
+          a2=          1               delta=       0.01 V       
+        rdsw=    968.546 ohm-um         prwg=  -0.102648 V^-1    
+        prwb=     -0.325 V^-1/2           wr=          1         
+        pclm=    5.26546             pdiblc1= 0.00422834         
+     pdiblc2= 0.00120452             pdiblcb= 0.00237525 V^-1    
+      pscbe1=3.01146e+10 V/m          pscbe2=3.03704e-07 V/m     
+       drout=          0                pvag=    8.95643         
+     nfactor=    1.54605                cdsc=0.000141332 f/m^2   
+       cdscb=          0 f/V/m^2       cdscd=          0 f/V/m^2 
+         cit=          0 f/m^2        alpha0=          0 m/V     
+       beta0=         30 V               dlc=8.71907e-09 meter   
+         dwc=2.74881e-08 meter           clc=      1e-07 meter   
+         cle=        0.6                cgso=   5.59e-10 f/m     
+        cgdo=   5.59e-10 f/m            cgbo=          0 f/m     
+        cgsl=          0 f/m            cgdl=          0 f/m     
+      ckappa=        0.6                  cf=9.33852e-11 f/m     
+        tnom=     300.15 K               kt1=      -0.11 V       
+        kt1l=          0                 kt2=      0.022         
+         ute=       -1.5                 ua1=   4.31e-09 m/V     
+         ub1=  -7.61e-18 (m/V)^2         uc1=   -5.6e-11 m/V^2   
+          at=      33000 m/s             prt=          0         
+         using Berkeley noise model       noiMod=          1         
+        noia=    9.9e+18                noib=       2400         
+        noic=    1.4e-12                  em=    4.1e+07         
+          ef=          1                  af=          1         
+          kf=          0              gdsnoi=-1.23457e-29         
+         using Hspice diodes            using ACM 
+         acm=         0                 hdif=         0 meter    
+        ldif=         0 meter             js=         0 amp/m^2  
+         jsw=         0 amp/m            xti=         0          
+           n=         1                   cj=0.00188286 f/m^2    
+          mj=  0.467979                   pb=  0.989132 V        
+        cjsw=3.67186e-10 f/m             mjsw=  0.356213          
+         php=  0.989132 V               pbsw (not used)           
+      cjgate=3.67186e-10 f/m            cjswg (not used)           
+       mjswg (not used)                 pbswg (not used)           
+       lketa= -0.0232426               lvsat=     125700         
+       wketa= 0.00410049               pvth0= 0.00392376         
+         pk2= 0.00206176               prdsw=    15.3953         
+ 
+
+  
+
+  **warning** the following singular supplies were terminated to 1 meg resistor 
+          supply       node1            node2
+(./ms/opamp_fast.sp:106)v3                      0:vss              defined in subckt 0                     0:0                defined in subckt 0               
+      
+ **info** set option symb=1 internally to help for convergence.
+ *****************************************************************
+ ******  option summary
+ ******
+ runlvl  = 3         bypass  = 2         
+ **info** dc convergence successful at GMINDC ramping method 
+1****** HSPICE -- K-2015.06-SP1 linux64 (Aug 23 2015) ******                    
+ ******  
+ .title ece423 final project
+
+ ****** operating point information tnom=  25.000 temp= -40.000 ******
+ ****** operating point status is all       simulation time is     0.     
+    node    =voltage      node    =voltage      node    =voltage
+
+ +0:a       =   2.0531  0:b       =   2.1394  0:d10     = 286.0816m
+ +0:d11     = 286.0816m 0:d3      =   2.1283  0:d4      =   2.1283 
+ +0:d51s5   = 144.8256m 0:d8s10   = 128.1024m 0:d9s11   = 128.1024m
+ +0:dt1     = 645.6585m 0:dt2     =   1.7432  0:dt3     =   1.5320 
+ +0:idiff   = 665.4032m 0:idiff1  = 693.1744m 0:idiff2  = 693.1744m
+ +0:iref    =   2.1385  0:sb1     = 770.2729m 0:sb2     = 890.1449m
+ +0:sooch   =   1.5358  0:vcm_ref =   1.2500  0:vdd     =   2.7500 
+ +0:vfold1  =   2.3590  0:vfold2  =   2.3590  0:vin1    =   1.2500 
+ +0:vin2    =   1.2500  0:voutn   =   1.3198  0:voutp   =   1.3198 
+ +0:vss     =   0.      0:vtest   =   1.2500 
+
+
+ **** voltage sources
+
+ subckt                                                                    
+ element  0:v1       0:v2       0:v3       0:v4       0:v5       0:v6      
+  volts      1.2500     2.7500     0.         1.2500     1.2500     0.     
+  current   -1.2500n   -5.2533m    0.        -1.2500n    0.        -1.2500n
+  power      1.5625n   14.4466m    0.         1.5625n    0.         0.     
+
+     total voltage source power dissipation=   14.4466m       watts
+
+
+
+ **** current sources
+
+ subckt             
+ element  0:i1      
+  volts      2.1385 
+  current  250.0000u
+  power   -534.6244u
+
+
+     total current source power dissipation=-534.6244u       watts
+
+ **** resistors
+
+ subckt                        
+ element  0:rf1      0:rf2     
+  r value    1.0000g    1.0000g
+  v drop     1.2500     1.2500 
+  current    1.2500n    1.2500n
+  power      1.5625n    1.5625n
+
+
+
+ **** mosfets
+
+
+ subckt                                                                    
+ element  0:m0       0:m1       0:m2       0:m3       0:m4       0:m34     
+ model    0:cmosp    0:cmosn    0:cmosn    0:cmosp    0:cmosp    0:cmosp   
+ region     Saturati   Saturati   Saturati   Saturati   Saturati   Saturati
+  id      -250.0000u  451.0860u  451.0860u -437.6090u -437.6090u -437.6090u
+  ibs        0.         0.         0.         0.         0.         0.     
+  ibd        0.         0.         0.         0.         0.         0.     
+  vgs     -611.5026m  584.5968m  584.5968m -615.8108m -615.8108m -596.3181m
+  vds     -611.5026m    1.6936     1.6936  -230.6294m -230.6294m -808.5371m
+  vbs        0.         0.         0.         0.         0.         0.     
+  vth     -538.2531m  532.3678m  532.3678m -543.4151m -543.4151m -535.7984m
+  vdsat   -106.0049m   77.7313m   77.7313m -105.8412m -105.8412m  -98.3601m
+  vod      -73.2495m   52.2291m   52.2291m  -72.3958m  -72.3958m  -60.5197m
+  beta      46.7393m   96.4617m   96.4617m   93.2640m   93.2640m   93.8778m
+  gam eff  384.2682m  297.1965m  297.1965m  384.4091m  384.4091m  384.4091m
+  gm         3.5628m    7.1109m    7.1109m    6.2444m    6.2444m    6.5826m
+  gds      114.7143u  214.5426u  214.5426u  272.5114u  272.5114u  190.6754u
+  gmb      907.0884u    1.5883m    1.5883m    1.5966m    1.5966m    1.6773m
+  cdtot    159.2143f  107.5129f  107.5129f  344.8248f  344.8248f  307.6116f
+  cgtot    158.1466f  114.1569f  114.1569f  316.5331f  316.5331f  312.3123f
+  cstot    221.9092f  164.4969f  164.4969f  443.5478f  443.5478f  440.1836f
+  cbtot    266.4746f  185.6719f  185.6719f  558.5095f  558.5095f  521.7439f
+  cgs      108.2359f   76.3146f   76.3146f  216.8282f  216.8282f  211.1550f
+  cgd       45.9310f   35.5903f   35.5903f   92.1602f   92.1602f   91.9419f
+
+
+
+ subckt                                                                    
+ element  0:m35      0:m5       0:m51      0:m6       0:m7       0:m8      
+ model    0:cmosp    0:cmosn    0:cmosn    0:cmosp    0:cmosp    0:cmosn   
+ region     Saturati   Saturati   Saturati   Saturati   Saturati   Saturati
+  id      -437.6090u  902.1720u  902.1720u -888.6950u -888.6950u  437.6090u
+  ibs        0.         0.         0.         0.         0.         0.     
+  ibd        0.         0.         0.         0.         0.         0.     
+  vgs     -596.3181m  645.6585m  625.4473m -610.6074m -610.6074m  645.6585m
+  vds     -808.5371m  144.8256m  520.5776m -391.0259m -391.0259m  128.1024m
+  vbs        0.         0.         0.         0.         0.         0.     
+  vth     -535.7984m  548.2666m  544.3931m -541.3721m -541.3721m  548.5058m
+  vdsat    -98.3601m  102.9166m   93.3831m -104.0145m -104.0145m  102.7609m
+  vod      -60.5197m   97.3919m   81.0542m  -69.2352m  -69.2352m   97.1527m
+  beta      93.8778m  191.4357m  191.9268m  186.8917m  186.8917m   95.7113m
+  gam eff  384.4091m  296.9071m  296.9071m  384.4794m  384.4794m  297.1965m
+  gm         6.5826m   12.3024m   13.3574m   12.8913m   12.8913m    5.8940m
+  gds      190.6754u    1.4053m  554.9420u  460.7625u  460.7625u  881.5137u
+  gmb        1.6773m    2.7199m    2.9587m    3.2995m    3.2995m    1.3031m
+  cdtot    307.6116f  271.6520f  249.3885f  663.9649f  663.9649f  137.0808f
+  cgtot    312.3123f  239.8729f  235.8382f  630.6189f  630.6189f  120.1687f
+  cstot    440.1836f  336.0425f  333.9906f  884.9638f  884.9638f  168.2848f
+  cbtot    521.7439f  425.5567f  405.0438f    1.0914p    1.0914p  213.9460f
+  cgs      211.1550f  165.4923f  161.9273f  430.6305f  430.6305f   82.7151f
+  cgd       91.9419f   72.5121f   71.1275f  183.9399f  183.9399f   36.5610f
+
+
+
+ subckt                                                                    
+ element  0:m9       0:m10      0:m11      0:m32      0:m33      0:m16     
+ model    0:cmosn    0:cmosn    0:cmosn    0:cmosn    0:cmosn    0:cmosp   
+ region     Saturati   Saturati   Saturati   Saturati   Saturati   Saturati
+  id       437.6090u  437.6090u  437.6090u  437.6090u  437.6090u -519.1493u
+  ibs        0.         0.         0.         0.         0.         0.     
+  ibd        0.         0.         0.         0.         0.         0.     
+  vgs      645.6585m  642.1705m  642.1705m  604.0633m  604.0633m   -1.0068 
+  vds      128.1024m  157.9792m  157.9792m    1.0337     1.0337    -1.0068 
+  vbs        0.         0.         0.         0.         0.         0.     
+  vth      548.5058m  548.1978m  548.1978m  539.1700m  539.1700m -636.0973m
+  vdsat    102.7609m  100.8795m  100.8795m   84.3811m   84.3811m -321.4864m
+  vod       97.1527m   93.9727m   93.9727m   64.8933m   64.8933m -370.7394m
+  beta      95.7113m   95.7502m   95.7502m   96.2165m   96.2165m    8.4464m
+  gam eff  297.1965m  297.1965m  297.1965m  297.1965m  297.1965m  384.4904m
+  gm         5.8940m    6.1369m    6.1369m    6.7296m    6.7296m    2.4318m
+  gds      881.5137u  574.1222u  574.1222u  235.8457u  235.8457u   31.7881u
+  gmb        1.3031m    1.3556m    1.3556m    1.4958m    1.4958m  722.7433u
+  cdtot    137.0808f  135.3958f  135.3958f  115.5983f  115.5983f  149.8147f
+  cgtot    120.1687f  119.5360f  119.5360f  116.0661f  116.0661f  405.6502f
+  cstot    168.2848f  168.1278f  168.1278f  165.9121f  165.9121f  383.7081f
+  cbtot    213.9460f  212.8828f  212.8828f  193.7430f  193.7430f  317.6418f
+  cgs       82.7151f   82.4412f   82.4412f   78.6715f   78.6715f  354.7104f
+  cgd       36.5610f   36.0605f   36.0605f   35.5714f   35.5714f   46.8483f
+
+
+
+ subckt                                                                    
+ element  0:m17      0:m37      0:m38      0:m12      0:m13      0:m14     
+ model    0:cmosn    0:cmosp    0:cmosn    0:cmosp    0:cmosn    0:cmosn   
+ region     Saturati   Saturati   Saturati   Saturati     Linear     Linear
+  id       519.1493u -478.5182u  478.5182u -319.8325u  319.8325u  319.8325u
+  ibs        0.         0.         0.         0.         0.         0.     
+  ibd        0.         0.         0.         0.         0.         0.     
+  vgs      645.6585m   -1.2180   645.6585m -611.5026m  765.5305m  890.1449m
+  vds        1.7432    -1.2180     1.5320    -1.2142   119.8720m  124.6144m
+  vbs        0.         0.         0.         0.         0.         0.     
+  vth      531.9901m -640.4314m  534.1667m -530.3098m  479.7705m  466.7583m
+  vdsat    112.6000m -487.4454m  111.2878m -111.1908m  247.5256m  358.2581m
+  vod      113.6684m -577.5420m  111.4918m  -81.1928m  285.7600m  423.3866m
+  beta      47.9545m    3.3603m   47.9414m   46.8610m   14.0450m    8.1143m
+  gam eff  297.7752m  384.5241m  297.7752m  384.2682m  296.9597m  296.8184m
+  gm         5.7602m    1.4288m    5.4561m    4.3816m    1.3654m  826.3287u
+  gds      195.1803u   13.5943u  189.7108u  118.1626u    1.8436m    2.0333m
+  gmb        1.2794m  458.5685u    1.2107m    1.0996m  309.7225u  194.5267u
+  cdtot     53.7103f  145.8446f   54.8166f  145.3272f   94.7278f  128.7176f
+  cgtot     60.0064f  802.5971f   59.9589f  159.0707f  130.9597f  204.3325f
+  cstot     84.7310f  648.3303f   84.6921f  222.5043f  117.3685f  146.4079f
+  cbtot     93.0303f  412.8879f   94.1391f  252.6406f  121.0426f  134.3439f
+  cgs       41.8416f  751.7145f   41.7746f  109.1343f   91.4042f  132.7914f
+  cgd       17.7633f   47.0249f   17.7639f   45.9123f   41.2326f   75.8714f
+
+
+
+ subckt                                                                    
+ element  0:m15      0:m36      0:m18      0:m19      0:m20      0:m21     
+ model    0:cmosn    0:cmosn    0:cmosp    0:cmosp    0:cmosn    0:cmosn   
+ region     Saturati   Saturati   Saturati   Saturati   Saturati   Saturati
+  id       319.8325u  319.8325u   -1.4143m -494.0797u  707.1667u  247.0399u
+  ibs        0.         0.         0.         0.         0.         0.     
+  ibd        0.         0.         0.         0.         0.         0.     
+  vgs      645.6585m  645.6585m -696.8747m -610.6074m  626.6333m  556.8256m
+  vds      645.6585m  645.6585m -696.8747m -610.6074m    1.3600     1.4462 
+  vbs        0.         0.         0.         0.         0.         0.     
+  vth      543.3040m  543.3040m -537.2701m -538.4071m  535.8070m  534.9177m
+  vdsat    105.8162m  105.8162m -168.7961m -105.7135m   98.9961m   63.6607m
+  vod      102.3545m  102.3545m -159.6046m  -72.2003m   90.8263m   21.9080m
+  beta      47.8851m   47.8851m   91.6058m   93.5227m   96.0584m   96.6101m
+  gam eff  297.7752m  297.7752m  384.4091m  384.4091m  297.1965m  297.1965m
+  gm         4.1544m    4.1544m   13.4696m    7.0737m    9.1988m    4.5467m
+  gds      170.1073u  170.1073u  533.6895u  227.0107u  315.8616u  137.2441u
+  gmb      917.7003u  917.7003u    3.3732m    1.8037m    2.0452m    1.0159m
+  cdtot     61.3934f   61.3934f  313.2959f  318.1184f  111.1934f  110.2155f
+  cgtot     59.7363f   59.7363f  324.5796f  316.0427f  118.7124f  107.7272f
+  cstot     84.5085f   84.5085f  449.9248f  443.2066f  167.9069f  159.6690f
+  cbtot    100.7235f  100.7235f  526.8547f  532.1685f  189.2965f  188.4197f
+  cgs       41.4618f   41.4618f  227.3238f  216.1081f   82.0170f   68.2671f
+  cgd       17.7696f   17.7696f   91.7987f   91.9021f   35.5435f   35.6567f
+
+
+
+ subckt                                              
+ element  0:m22      0:m23      0:m24      0:m25     
+ model    0:cmosn    0:cmosn    0:cmosn    0:cmosn   
+ region     Saturati   Saturati   Saturati   Saturati
+  id       247.0399u  707.1667u  954.2065u  954.2065u
+  ibs        0.         0.         0.         0.     
+  ibd        0.         0.         0.         0.     
+  vgs      556.8256m  626.6333m  693.1744m  693.1744m
+  vds        1.4462     1.3600   693.1744m  693.1744m
+  vbs        0.         0.         0.         0.     
+  vth      534.9177m  535.8070m  475.4335m  475.4335m
+  vdsat     63.6607m   98.9961m  197.2868m  197.2868m
+  vod       21.9080m   90.8263m  217.7409m  217.7409m
+  beta      96.6101m   96.0584m   44.4992m   44.4992m
+  gam eff  297.1965m  297.1965m  296.7370m  296.7370m
+  gm         4.5467m    9.1988m    7.8051m    7.8051m
+  gds      137.2441u  315.8616u  114.5962u  114.5962u
+  gmb        1.0159m    2.0452m    1.7043m    1.7043m
+  cdtot    110.2155f  111.1934f  181.3680f  181.3680f
+  cgtot    107.7272f  118.7124f  338.6851f  338.6851f
+  cstot    159.6690f  167.9069f  353.8397f  353.8397f
+  cbtot    188.4197f  189.2965f  331.7108f  331.7108f
+  cgs       68.2671f   82.0170f  283.1370f  283.1370f
+  cgd       35.6567f   35.5435f   51.8633f   51.8633f
+
+
+
+ ******
+ .title ece423 final project
+
+ ****** ac analysis tnom=  25.000 temp= -40.000 ******
+ frequnityn= 105.5839x
+ frequnityp= 114.7315x
+ pgain=  60.7233     at=   1.0233k
+             from=  10.0000     to= 114.7315x
+ ngain=  60.7233     at=   1.0233k
+             from=  10.0000     to= 105.5839x
+ min_phasen= -97.4810     at= 105.5839x
+             from=   1.0000     to= 105.5839x
+ min_phasep=  88.6827     at= 114.7315x
+             from=   1.0000     to= 114.7315x
+ pm= 268.6827 
+
+          ***** job concluded
+1****** HSPICE -- K-2015.06-SP1 linux64 (Aug 23 2015) ******                    
+ ******  
+ .title ece423 final project
+
+ ****** job statistics summary tnom=  25.000 temp= -40.000 ******
+  
+  
+ ******  Machine Information  ******
+ CPU:
+ model name	: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz
+ cpu MHz	: 3401.000
+  
+ OS:
+ Linux version 2.6.32-573.12.1.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) ) #1 SMP Tue Dec 15 21:19:08 UTC 2015
+
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :     8
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =      30 # elements   =      49
+  # resistors   =       3 # capacitors =       5 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       6
+  # curr_srcs   =       1 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =      34 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       0
+  # vector_srcs =       0 # N elements =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           0.06           1         260
+  dc sweep           0.39        3001        6267
+  ac analysis        0.01         601         601
+  readin             0.01
+  errchk             0.01
+  setup              0.00
+  output             0.00
+
+
+           peak memory used        202.02 megabytes
+           total cpu time            0.48 seconds
+           total elapsed time        0.47 seconds
+           job started at     00:27:45 03/11/2016
+           job ended   at     00:27:45 03/11/2016
+
+
+ lic: Release hspice token(s) 
+ lic: total license checkout elapse time:        0.15(s)

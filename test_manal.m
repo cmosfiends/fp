@@ -6,48 +6,48 @@ filepath = 'Z:\ECE423\fp';
 cd(filepath);
 options = dir;
 
-aclist = {'opamp.ac0', 'opamp_cmf.ac0'}; %maybe we should add a differential tb?
-swlist = {'opamp.sw0'}; %sweeps input for output swing
+aclist = {'ehh.ac0', 'opamp_cmf.ac0'}; %maybe we should add a differential tb?
+swlist = {'ehh.sw0'}; %sweeps input for output swing
 
 % Remember ^R and ^T toggles comments
-
-%load sims and identify key channels with indexes 
-fileIdx = strmatch(aclist(1),{options.name}); 
-x_diff = loadsig([options(fileIdx).name]);
-
-f = strmatch('HERTZ', {x_diff.name});
-mp = strmatch({'v_voutp'}, {x_diff.name});
-mn = strmatch({'v_voutn'}, {x_diff.name});
-pp = strmatch({'vp_voutp'}, {x_diff.name});
-pn = strmatch({'vp_voutn'}, {x_diff.name});
-
-fileIdx = strmatch(aclist(2),{options.name}); 
-x_cmf = loadsig([options(fileIdx).name]);
-
-f = strmatch('HERTZ', {x_cmf.name});
-m = strmatch({'v_b'}, {x_cmf.name});
-p= strmatch({'vp_b'}, {x_cmf.name});
-
-%extract phase margin and unity gain bandwidth
-[~, pm_cmf, ~, ugf_cmf] = margin(abs(x_cmf(m(1)).data),...
-                                 x_cmf(p).data,...
-                                 x_cmf(f).data.*(2*pi));
-[~,pm_diff,~, ugf_diff] = margin(abs(x_diff(mp).data-x_diff(mn).data),...
-                                 x_diff(pn).data,...
-                                 x_diff(f).data.*(2*pi));
-                             
-
-%% Plot Frequency Response 
-figure
-set(gcf, 'Position', [347   162   928   504]); %wide view
-margin(abs(x_cmf(m(1)).data),x_cmf(p).data,x_cmf(f).data.*(2*pi));
-
-figure
-set(gcf, 'Position', [347   162   928   504]); %wide view
-margin(abs(x_diff(mp).data-x_diff(mn).data),...
-           x_diff(pn).data,...
-           x_diff(f).data.*(2*pi));
- 
+% 
+% %load sims and identify key channels with indexes 
+% fileIdx = strmatch(aclist(1),{options.name}); 
+% x_diff = loadsig([options(fileIdx).name]);
+% 
+% f = strmatch('HERTZ', {x_diff.name});
+% mp = strmatch({'v_voutp'}, {x_diff.name});
+% mn = strmatch({'v_voutn'}, {x_diff.name});
+% pp = strmatch({'vp_voutp'}, {x_diff.name});
+% pn = strmatch({'vp_voutn'}, {x_diff.name});
+% 
+% % fileIdx = strmatch(aclist(2),{options.name}); 
+% % x_cmf = loadsig([options(fileIdx).name]);
+% % 
+% % f = strmatch('HERTZ', {x_cmf.name});
+% % m = strmatch({'v_b'}, {x_cmf.name});
+% % p= strmatch({'vp_b'}, {x_cmf.name});
+% % 
+% % %extract phase margin and unity gain bandwidth
+% % [~, pm_cmf, ~, ugf_cmf] = margin(abs(x_cmf(m(1)).data),...
+% %                                  x_cmf(p).data,...
+% %                                  x_cmf(f).data.*(2*pi));
+% [~,pm_diff,~, ugf_diff] = margin(abs(x_diff(mp).data-x_diff(mn).data),...
+%                                  x_diff(pn).data,...
+%                                  x_diff(f).data.*(2*pi));
+% %                              
+% % 
+% % %% Plot Frequency Response 
+% % figure
+% % set(gcf, 'Position', [347   162   928   504]); %wide view
+% % margin(abs(x_cmf(m(1)).data),x_cmf(p).data,x_cmf(f).data.*(2*pi));
+% 
+% figure
+% set(gcf, 'Position', [347   162   928   504]); %wide view
+% margin(abs(x_diff(mp).data-x_diff(mn).data),...
+%            x_diff(pn).data,...
+%            x_diff(f).data.*(2*pi));
+%  
 %% Find Output Swing
 % Programatically identify the output swing 
 fileIdx = strmatch(swlist(1),{options.name}); %load .sw output
@@ -70,7 +70,6 @@ on_curve = db(diff(outn)./dx);
 max_gain = max([op_curve;on_curve]);
 %reference 6dB/50% compression
 reference = (max_gain-6)*ones(len-1,1);
-
 figure
 p1 = subplot(2,1,1);
 hold on
@@ -99,10 +98,10 @@ plot(input, outn,input, outp);
 plot(input(p_idx),outp(p_idx), 'ok',...
      input(n_idx),outn(n_idx), 'og');
 ylabel('V'); xlabel('VOLTS');
-%output swing referenced by flatband intersection
+%output swing referenced by -6dB intersection
 pswing = outp(p_idx(end))-outp(p_idx(1));
 nswing = outn(n_idx(1))-outn(n_idx(end));
 outswing = pswing + nswing;
 legend('+','-');
-text(.5e-3, 1,['Output Swing = ',num2str(outswing)]);
+text(.15e-3, 1,['Output Swing = ',num2str(outswing)]);
 linkaxes([p1 p2], 'x');

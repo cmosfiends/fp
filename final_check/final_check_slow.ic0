@@ -1,0 +1,42 @@
+* "simulator" "HSPICE" 
+* "version" "K-2015.06-SP1 linux64"
+* "format" "HSP"
+* "rundate" "05:39:16 03/11/2016 "
+* "netlist" "./final_check_slow.sp "
+* "runtitle" "* # file name: /nfs/stak/students/l/lovetr/cadence/simulation/"
+* time =    0.            
+* temperature =  100.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ b =   1.7014        
++ nb1 = 615.8891m       
++ nb2 = 721.7728m       
++ net0123 =   1.8101        
++ net0144 =   1.8101        
++ net0148 =   1.8101        
++ net0173 = 107.0168m       
++ net0205 =   1.7350        
++ net0208 =   1.0555        
++ net0211 =   1.8451        
++ net0232 =   1.4554        
++ net0261 = 118.7026m       
++ net164 =   1.0062        
++ net202 =   1.0062        
++ net210 =   1.3074        
++ net212 = 582.8876m       
++ net220 =   1.3074        
++ net226 = 582.8876m       
++ net234 =   1.6897        
++ net238 =   1.6897        
++ net241 = 571.2764m       
++ pb1 =   1.7064        
++ vcm_ref! =   1.2500        
++ vdd! =   2.2500        
++ vinn =   1.2500        
++ vinp =   1.2500        
++ voutn =   1.2064        
++ voutp =   1.2064        
++ vtest =   1.2500        
+***   END: Saved Operating Point ***                     

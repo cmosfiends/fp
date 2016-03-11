@@ -1,0 +1,42 @@
+* "simulator" "HSPICE" 
+* "version" "K-2015.06-SP1 linux64"
+* "format" "HSP"
+* "rundate" "22:08:37 03/08/2016 "
+* "netlist" "./opamp.sp "
+* "runtitle" ".title ece423 final project"
+* time =    0.            
+* temperature =   27.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ a =   1.8379        
++ b =   1.8955        
++ d10 = 322.4018m       
++ d11 = 322.4018m       
++ d3 =   1.8598        
++ d4 =   1.8598        
++ d51s5 = 163.4433m       
++ d8s10 = 148.9986m       
++ d9s11 = 148.9986m       
++ dt1 = 656.5312m       
++ dt2 =   1.4870        
++ dt3 =   1.2612        
++ idiff = 644.8725m       
++ idiff1 = 681.0387m       
++ idiff2 = 681.0387m       
++ iref =   1.8842        
++ sb1 = 802.6419m       
++ sb2 = 941.5870m       
++ sooch =   1.5981        
++ vcm_ref =   1.2500        
++ vdd =   2.5000        
++ vfold1 =   2.0965        
++ vfold2 =   2.0965        
++ vin1 =   1.2500        
++ vin2 =   1.2500        
++ voutn =   1.2964        
++ voutp =   1.2964        
++ vss =   0.            
++ vtest =   1.2500        
+***   END: Saved Operating Point ***                     

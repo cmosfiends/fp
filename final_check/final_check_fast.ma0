@@ -1,0 +1,8 @@
+$DATA1 SOURCE='HSPICE' VERSION='K-2015.06-SP1 linux64' PARAM_COUNT=0
+.TITLE '* # file name: /nfs/stak/students/l/lovetr/cadence/simulation/'
+ frequnityn       frequnityp       pgain            ngain           
+ min_phasen       min_phasep       pm               temper          
+ alter#          
+  5.992e+07        5.992e+07         65.6779          65.6779       
+   82.4297         -97.5703          82.4297         -40.0000       
+ 1               

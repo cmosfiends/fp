@@ -1,0 +1,8 @@
+$DATA1 SOURCE='HSPICE' VERSION='K-2015.06-SP1 linux64' PARAM_COUNT=0
+.TITLE '.title ece423 final project'
+ frequnityn       frequnityp       pgain            ngain           
+ min_phasen       min_phasep       pm               temper          
+ alter#          
+  9.902e+07        1.075e+08         60.9219          60.9220       
+  -97.5236          88.6730         268.6730         -40.0000       
+ 1               
